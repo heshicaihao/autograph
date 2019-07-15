@@ -236,7 +236,7 @@ public class LinePathView extends View {
     public void save(String path, boolean clearBlank, int blank) throws IOException {
 
         Bitmap bitmap = cachebBitmap;
-        //BitmapUtil.createScaledBitmapByHeight(srcBitmap, 300);//  压缩图片
+//        BitmapUtil.createScaledBitmapByHeight(srcBitmap, 300);//  压缩图片
         if (clearBlank) {
             bitmap = clearBlank(bitmap, blank);
         }
