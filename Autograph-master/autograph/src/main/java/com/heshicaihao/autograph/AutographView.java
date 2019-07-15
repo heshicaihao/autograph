@@ -88,6 +88,16 @@ public class AutographView extends LinearLayout {
         creatTime = formatter.format(curDate);
     }
 
+    /**
+     * 获取画板的bitmap
+     *
+     * @return
+     */
+    public LinePathView getLinePathView() {
+
+        return linepath_view;
+    }
+
 
     /**
      * 获取画板的bitmap
