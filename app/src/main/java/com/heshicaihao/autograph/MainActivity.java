@@ -56,12 +56,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.save_tv :
                 if (autograph_view.getTouched()) {
                     try {
+                        Bitmap bitmap =  autograph_view.getBitMap();
                         autograph_view.save("/sdcard/qm.png", true, 10);
                         setResult(100);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-//                    Bitmap bitmap =  autograph_view.getBitMap();
+
 //                    show_iv.setImageBitmap(bitmap);
                 } else {
                     Toast.makeText(MainActivity.this, "您没有签名~", Toast.LENGTH_SHORT).show();
