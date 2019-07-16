@@ -2,9 +2,11 @@ package com.heshicaihao.autograph;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -76,16 +78,56 @@ public class AutographView extends LinearLayout {
             }
         });
 
-        //修改背景、笔宽、颜色
-        linepath_view.setBackColor(Color.WHITE);
-        linepath_view.setPaintWidth(20);
-        linepath_view.setPenColor(Color.BLACK);
+    }
+
+    public void setHeight(int height) {
+        LayoutParams params = (LayoutParams) linepath_view.getLayoutParams();
+//        params.width = dip2px(context, width);
+        params.height = dip2px(context, height);
+        linepath_view.setLayoutParams(params);
+    }
+
+    /**
+     * 设置画布背景
+     * @param color
+     */
+    public void setBackColor(int color) {
+        linepath_view.setBackColor(color);
+    }
+
+    /**
+     * 设置画笔宽度
+     * @param Width
+     */
+    public void setPaintWidth(int Width) {
+        linepath_view.setPaintWidth(Width);
+    }
+
+    /**
+     * 设置画笔颜色
+     * @param color
+     */
+    public void setPenColor(int color) {
+        linepath_view.setPaintWidth(color);
     }
 
     private void gainCurrenTime() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddhhmmss");
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
         creatTime = formatter.format(curDate);
+    }
+
+    /**
+     * dp转为px
+     *
+     * @param context  上下文
+     * @param dipValue dp值
+     * @return
+     */
+    private int dip2px(Context context, float dipValue) {
+        Resources r = context.getResources();
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, dipValue, r.getDisplayMetrics());
     }
 
     /**
@@ -118,11 +160,9 @@ public class AutographView extends LinearLayout {
      */
     @SuppressLint("WrongThread")
     public void save(String path, boolean clearBlank, int blank) throws IOException {
-        linepath_view.save(path,clearBlank,blank);
+        linepath_view.save(path, clearBlank, blank);
 
     }
-
-
 
 
     /**
@@ -149,7 +189,6 @@ public class AutographView extends LinearLayout {
             save_tv.setOnClickListener(onClickListener);
         }
     }
-
 
 
 }

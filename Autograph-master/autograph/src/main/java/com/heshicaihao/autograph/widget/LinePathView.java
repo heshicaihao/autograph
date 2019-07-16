@@ -358,7 +358,7 @@ public class LinePathView extends View {
      * @param mPaintWidth
      */
     public void setPaintWidth(int mPaintWidth) {
-        mPaintWidth = mPaintWidth > 0 ? mPaintWidth : 10;
+        mPaintWidth = mPaintWidth > 0 ? mPaintWidth : 5;
         this.mPaintWidth = mPaintWidth;
         mGesturePaint.setStrokeWidth(mPaintWidth);
 
