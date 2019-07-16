@@ -44,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         autograph_view = findViewById(R.id.autograph_view);
-        LinePathView linepath_view =  autograph_view.getLinePathView();
-
+//        LinePathView linepath_view =  autograph_view.getLinePathView();
+//
 //        linepath_view.setBackColor(Color.WHITE);
-////        linepath_view.setPaintWidth(50);
+//        linepath_view.setPaintWidth(10);
 //        linepath_view.setPenColor(Color.BLACK);
         autograph_view.setBackColor(Color.WHITE);
         autograph_view.setPaintWidth(5);
         autograph_view.setPenColor(Color.BLACK);
-        autograph_view.setHeight(500);
+        autograph_view.setHeight(300);
 
         autograph_view.setOnSaveListener(new View.OnClickListener() {
             @Override
