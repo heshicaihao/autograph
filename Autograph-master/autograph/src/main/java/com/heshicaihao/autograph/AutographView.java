@@ -47,7 +47,7 @@ import java.io.IOException;
  */
 public class AutographView extends LinearLayout {
 
-    private LinearLayout  autograph_ll;
+    private LinearLayout autograph_ll;
     private LinearLayout clean_ll;
     private LinePathView linepath_view;
     private TextView save_tv;
@@ -89,13 +89,11 @@ public class AutographView extends LinearLayout {
                     try {
                         String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"), "autograph", FileConstants.PNG);
                         File file = new File(paths);
-                        file.delete();
                         if (file.exists()) {
                             file.delete();
-                        } else {
-                            save(paths, false, 10);
-                            Toast.makeText(context, "签名文件放到：\n" + paths, Toast.LENGTH_SHORT).show();
                         }
+                        save(paths, false, 10);
+                        Toast.makeText(context, "签名文件放到：\n" + paths, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -110,7 +108,7 @@ public class AutographView extends LinearLayout {
     public void setMyHeight(int height) {
         LayoutParams params = (LayoutParams) linepath_view.getLayoutParams();
 //        params.width = dip2px(context, width);
-        params.height = dip2px(context, height-130);
+        params.height = dip2px(context, height - 130);
         linepath_view.setLayoutParams(params);
     }
 
