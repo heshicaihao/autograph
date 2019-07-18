@@ -57,8 +57,8 @@ public class AutographManager extends SimpleViewManager<AutographView> {
      * @param myheight
      */
     @ReactProp(name = "myheight")
-    public void setHeight(AutographView view, Integer myheight) {
-        view.setHeight(myheight);
+    public void seMytHeight(AutographView view, Integer myheight) {
+        view.setMyHeight(myheight);
     }
 
 }

@@ -12,8 +12,8 @@ export default class HelloWorldApp extends Component {
 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 
 <Autograph
-  style={{width: 700, height: 550}}
-  myheight={500}
+  style={{width: 475, height: 330}}
+  myheight={330}
 />
       </View>
     );
