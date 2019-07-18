@@ -1,0 +1,30 @@
+Demo 测试工程
+
+E:
+
+cd E:\workspace\autograph.git\trunk\AutographRN-master\HelloWorldRN
+
+react-native start --port 8085
+
+react-native run-android
+
+100.118.116.11:8085
+
+npm install
+
+npm start
+
+git pull
+
+react-native start
+
+react-native v
+
+react-native init HelloWorldRN
+
+
+
+夜神模拟器：
+D:
+cd D:\Program Files\Nox\bin
+nox_adb.exe connect 127.0.0.1:62001
