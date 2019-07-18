@@ -1,4 +1,7 @@
 手写签名功能
+java功能参考 枫羽望空的文章
+https://www.jianshu.com/p/c084c5928a9f
+感谢 枫羽望空
 此功能为了集成到react-native中
 功能是java的
 集成到react-native
