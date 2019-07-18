@@ -2,21 +2,15 @@ package com.heshicaihao.autograph.demo;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.heshicaihao.autograph.AutographView;
-import com.heshicaihao.autograph.constants.FileConstants;
-import com.heshicaihao.autograph.widget.LinePathView;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,33 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         autograph_view = findViewById(R.id.autograph_view);
-//        LinePathView linepath_view =  autograph_view.getLinePathView();
-//
-//        linepath_view.setBackColor(Color.WHITE);
-//        linepath_view.setPaintWidth(10);
-//        linepath_view.setPenColor(Color.BLACK);
-//        autograph_view.setBackColor(Color.WHITE);
-//        autograph_view.setPaintWidth(5);
-//        autograph_view.setPenColor(Color.BLACK);
-//        autograph_view.setHeight(300);
-
-//        autograph_view.setOnSaveListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (autograph_view.getTouched()) {
-//                    try {
-//                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.PNG);
-//                        autograph_view.save(paths, false, 10);
-//                        Toast.makeText(getApplicationContext(), "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "您没有签名~", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
+        autograph_view.setMyHeight(330);
 
     }
 

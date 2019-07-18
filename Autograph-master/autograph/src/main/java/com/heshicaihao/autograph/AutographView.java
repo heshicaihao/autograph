@@ -18,8 +18,6 @@ import com.heshicaihao.autograph.widget.LinePathView;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /***
@@ -49,11 +47,11 @@ import java.util.Date;
  */
 public class AutographView extends LinearLayout {
 
+    private LinearLayout  autograph_ll;
+    private LinearLayout clean_ll;
     private LinePathView linepath_view;
-    private TextView clean_tv;
     private TextView save_tv;
     Context context;
-    private String creatTime;
 
     public AutographView(Context context) {
         this(context, null);
@@ -64,21 +62,20 @@ public class AutographView extends LinearLayout {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.view_autograph, this);
         this.context = context;
-        gainCurrenTime();
         initView();
 
     }
 
     private void initView() {
+        autograph_ll = findViewById(R.id.clean_ll);
+        clean_ll = findViewById(R.id.clean_ll);
         linepath_view = findViewById(R.id.linepath_view);
-        clean_tv = findViewById(R.id.clean_tv);
         save_tv = findViewById(R.id.save_tv);
 
-        linepath_view.setBackColor(Color.WHITE);
         linepath_view.setPaintWidth(10);
         linepath_view.setPenColor(Color.BLACK);
 
-        clean_tv.setOnClickListener(new OnClickListener() {
+        clean_ll.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 cleanOnDetails();
@@ -90,14 +87,14 @@ public class AutographView extends LinearLayout {
             public void onClick(View v) {
                 if (getTouched()) {
                     try {
-                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.JPEG);
+                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"), "autograph", FileConstants.PNG);
                         File file = new File(paths);
                         file.delete();
-                        if(file.exists()){
+                        if (file.exists()) {
                             file.delete();
-                        }else{
+                        } else {
                             save(paths, false, 10);
-                            Toast.makeText(context, "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "签名文件放到：\n" + paths, Toast.LENGTH_SHORT).show();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -110,15 +107,16 @@ public class AutographView extends LinearLayout {
 
     }
 
-    public void setHeight(int height) {
+    public void setMyHeight(int height) {
         LayoutParams params = (LayoutParams) linepath_view.getLayoutParams();
 //        params.width = dip2px(context, width);
-        params.height = dip2px(context, height);
+        params.height = dip2px(context, height-130);
         linepath_view.setLayoutParams(params);
     }
 
     /**
      * 设置画布背景
+     *
      * @param color
      */
     public void setBackColor(int color) {
@@ -127,6 +125,7 @@ public class AutographView extends LinearLayout {
 
     /**
      * 设置画笔宽度
+     *
      * @param Width
      */
     public void setPaintWidth(int Width) {
@@ -135,16 +134,11 @@ public class AutographView extends LinearLayout {
 
     /**
      * 设置画笔颜色
+     *
      * @param color
      */
     public void setPenColor(int color) {
         linepath_view.setPenColor(color);
-    }
-
-    private void gainCurrenTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddhhmmss");
-        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-        creatTime = formatter.format(curDate);
     }
 
     /**

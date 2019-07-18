@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.heshicaihao.autograph.R;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -83,7 +85,9 @@ public class LinePathView extends View {
     /**
      * 背景色（指最终签名结果文件的背景颜色，默认为透明色）
      */
-    private int mBackColor = Color.WHITE;
+    private int mBackColor = Color.TRANSPARENT;
+//    @SuppressLint("NewApi")
+//    private int mBackColor = mContext.getColor(R.color.hint_back_color);
 
     //签名开始与结束
     private Touch touch;
@@ -244,7 +248,7 @@ public class LinePathView extends View {
             bitmap = clearBlank(bitmap, blank);
         }
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
         byte[] buffer = bos.toByteArray();
         if (buffer != null) {
             File file = new File(path);
