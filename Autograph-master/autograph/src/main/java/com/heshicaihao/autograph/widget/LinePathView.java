@@ -241,7 +241,7 @@ public class LinePathView extends View {
             bitmap = clearBlank(bitmap, blank);
         }
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
         byte[] buffer = bos.toByteArray();
         if (buffer != null) {
             File file = new File(path);
@@ -355,7 +355,7 @@ public class LinePathView extends View {
     /**
      * 设置画笔宽度 默认宽度为10px
      *
-     * @param mPaintWidth
+//     * @param mPaintWidth
      */
     public void setPaintWidth(int mPaintWidth) {
         mPaintWidth = mPaintWidth > 0 ? mPaintWidth : 5;

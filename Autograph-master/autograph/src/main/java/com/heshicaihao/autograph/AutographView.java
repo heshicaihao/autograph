@@ -127,7 +127,7 @@ public class AutographView extends LinearLayout {
      * @param color
      */
     public void setPenColor(int color) {
-        linepath_view.setPaintWidth(color);
+        linepath_view.setPenColor(color);
     }
 
     private void gainCurrenTime() {
@@ -198,9 +198,7 @@ public class AutographView extends LinearLayout {
      */
     private void cleanOnDetails() {
         linepath_view.clear();
-        linepath_view.setBackColor(Color.WHITE);
-        linepath_view.setPaintWidth(20);
-        linepath_view.setPenColor(Color.BLACK);
+
     }
 
     public void setOnSaveListener(OnClickListener onClickListener) {

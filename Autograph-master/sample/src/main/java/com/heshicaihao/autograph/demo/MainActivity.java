@@ -49,27 +49,27 @@ public class MainActivity extends AppCompatActivity {
 //        linepath_view.setBackColor(Color.WHITE);
 //        linepath_view.setPaintWidth(10);
 //        linepath_view.setPenColor(Color.BLACK);
-        autograph_view.setBackColor(Color.WHITE);
-        autograph_view.setPaintWidth(5);
-        autograph_view.setPenColor(Color.BLACK);
-        autograph_view.setHeight(300);
+//        autograph_view.setBackColor(Color.WHITE);
+//        autograph_view.setPaintWidth(5);
+//        autograph_view.setPenColor(Color.BLACK);
+//        autograph_view.setHeight(300);
 
-        autograph_view.setOnSaveListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (autograph_view.getTouched()) {
-                    try {
-                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.PNG);
-                        autograph_view.save(paths, false, 10);
-                        Toast.makeText(getApplicationContext(), "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "您没有签名~", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        autograph_view.setOnSaveListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (autograph_view.getTouched()) {
+//                    try {
+//                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.PNG);
+//                        autograph_view.save(paths, false, 10);
+//                        Toast.makeText(getApplicationContext(), "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "您没有签名~", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
 
     }
