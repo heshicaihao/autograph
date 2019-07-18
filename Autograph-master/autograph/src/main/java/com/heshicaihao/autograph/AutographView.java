@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.heshicaihao.autograph.constants.FileConstants;
 import com.heshicaihao.autograph.widget.LinePathView;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,6 +74,10 @@ public class AutographView extends LinearLayout {
         clean_tv = findViewById(R.id.clean_tv);
         save_tv = findViewById(R.id.save_tv);
 
+        linepath_view.setBackColor(Color.WHITE);
+        linepath_view.setPaintWidth(10);
+        linepath_view.setPenColor(Color.BLACK);
+
         clean_tv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,8 +91,14 @@ public class AutographView extends LinearLayout {
                 if (getTouched()) {
                     try {
                         String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.JPEG);
-                        save(paths, false, 10);
-                        Toast.makeText(context, "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
+                        File file = new File(paths);
+                        file.delete();
+                        if(file.exists()){
+                            file.delete();
+                        }else{
+                            save(paths, false, 10);
+                            Toast.makeText(context, "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
+                        }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
