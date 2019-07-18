@@ -75,7 +75,7 @@ public class LinePathView extends View {
     /**
      * 画笔宽度 px；
      */
-    private int mPaintWidth = 10;
+    private int mPaintWidth = 5;
     /**
      * 前景色
      */

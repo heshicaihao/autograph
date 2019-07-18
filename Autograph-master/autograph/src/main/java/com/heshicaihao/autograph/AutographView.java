@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.heshicaihao.autograph.constants.FileConstants;
 import com.heshicaihao.autograph.widget.LinePathView;
 
 import java.io.IOException;
@@ -75,6 +77,23 @@ public class AutographView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 cleanOnDetails();
+            }
+        });
+
+        save_tv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getTouched()) {
+                    try {
+                        String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"),"autograph",FileConstants.JPEG);
+                        save(paths, false, 10);
+                        Toast.makeText(context, "签名文件放到：\n"+paths, Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(context, "您没有签名~", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

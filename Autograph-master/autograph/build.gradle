@@ -36,7 +36,7 @@ ext {
     GITHUB_REPO_PATH = "E:/workspace/autograph.git/trunk"
     PUBLISH_GROUP_ID = 'com.heshicaihao'
     PUBLISH_ARTIFACT_ID = 'autograph'
-    PUBLISH_VERSION = '0.0.3'
+    PUBLISH_VERSION = '0.0.4'
 }
 uploadArchives {
     repositories.mavenDeployer {
