@@ -19,6 +19,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/title_tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -49,11 +50,13 @@
                     android:paddingBottom="2dp">
 
                     <ImageView
+                        android:id="@+id/clean_iv"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:background="@mipmap/clean" />
 
                     <TextView
+                        android:id="@+id/clean_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
@@ -82,8 +85,10 @@
         <TextView
             android:id="@+id/save_tv"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="38dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:background="@drawable/button_true_solid"
             android:gravity="center"
             android:text="确认服务成功"
