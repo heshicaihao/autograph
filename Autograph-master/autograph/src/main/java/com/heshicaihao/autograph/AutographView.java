@@ -48,7 +48,8 @@ import java.io.IOException;
  * 2019/7/15.
  */
 public class AutographView extends LinearLayout {
-  private LinearLayout autograph_ll;
+
+    private LinearLayout autograph_ll;
     private LinearLayout clean_ll;
     private LinePathView linepath_view;
     private TextView save_tv;
