@@ -68,7 +68,8 @@ public class UploadPic {
 		}
 
 		String fileKey = "file";
-		upload2Net(file, fileKey, requestURL, params);
+//		upload2Net(file, fileKey, requestURL, params);
+		upload2Net(bm, fileKey, requestURL, params);
 //		if (AndroidUtils.isNetworkAvailable(context)) {
 //			upload2Net(file, fileKey, requestURL, params);
 //		} else {
@@ -85,8 +86,11 @@ public class UploadPic {
 	 * @param RequestURL
 	 * @param param
 	 */
-	public void upload2Net(File file, String fileKey, String RequestURL,
+	public void upload2Net(Bitmap bm, String fileKey, String RequestURL,
 			Map<String, String> param) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+		InputStream isBm = new ByteArrayInputStream(baos.toByteArray());
 		String result = null;
 		try {
 			URL url = new URL(RequestURL);
