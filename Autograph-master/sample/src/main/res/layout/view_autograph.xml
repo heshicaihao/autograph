@@ -76,7 +76,7 @@
             android:background="@drawable/bg_autograph_text"
             android:padding="5dp">
 
-            <com.heshicaihao.autograph.widget.LinePathView
+            <com.heshicaihao.autograph.demo.widget.LinePathView
                 android:id="@+id/linepath_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

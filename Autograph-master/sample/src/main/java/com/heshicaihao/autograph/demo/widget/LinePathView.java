@@ -1,4 +1,4 @@
-package com.heshicaihao.autograph.widget;
+package com.heshicaihao.autograph.demo.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.heshicaihao.autograph.R;
+import com.heshicaihao.autograph.demo.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

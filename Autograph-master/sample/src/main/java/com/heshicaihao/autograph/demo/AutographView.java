@@ -1,4 +1,4 @@
-package com.heshicaihao.autograph;
+package com.heshicaihao.autograph.demo;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,8 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.heshicaihao.autograph.constants.FileConstants;
-import com.heshicaihao.autograph.widget.LinePathView;
+import com.heshicaihao.autograph.demo.R;
+
+import com.heshicaihao.autograph.demo.constants.FileConstants;
+import com.heshicaihao.autograph.demo.widget.LinePathView;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,19 +70,19 @@ public class AutographView extends LinearLayout {
 
     public AutographView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        LayoutInflater.from(context).inflate(R.layout.view_autograph, this);
+        LayoutInflater.from(context).inflate( R.layout.view_autograph, this);
         this.context = context;
         initView();
 
     }
 
     private void initView() {
-        autograph_ll = findViewById(R.id.clean_ll);
-        clean_ll = findViewById(R.id.clean_ll);
-        linepath_view = findViewById(R.id.linepath_view);
-        save_tv = findViewById(R.id.save_tv);
-        title_tv = findViewById(R.id.title_tv);
-        clean_iv = findViewById(R.id.clean_iv);
+        autograph_ll = findViewById( R.id.clean_ll);
+        clean_ll = findViewById( R.id.clean_ll);
+        linepath_view = findViewById( R.id.linepath_view);
+        save_tv = findViewById( R.id.save_tv);
+        title_tv = findViewById( R.id.title_tv);
+        clean_iv = findViewById( R.id.clean_iv);
         clean_tv = findViewById(R.id.clean_tv);
 
         linepath_view.setPaintWidth(10);
@@ -92,25 +94,25 @@ public class AutographView extends LinearLayout {
                 cleanOnDetails();
             }
         });
-        Log.d("save_tv","0");
+        Log.d("save_tv", "0");
         save_tv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("save_tv","1");
+                Log.d("save_tv", "1");
                 if (getTouched()) {
-                    Log.d("save_tv","getTouched");
+                    Log.d("save_tv", "getTouched");
                     try {
                         String paths = FileConstants.getFilePath(FileConstants.getThirdPath("autograph"), "autograph", FileConstants.PNG);
-                        Log.d("save_tv",paths);
+                        Log.d("save_tv", paths);
                         File file = new File(paths);
                         if (file.exists()) {
                             file.delete();
-                            Log.d("save_tv","delete");
+                            Log.d("save_tv", "delete");
                         }
                         save(paths, false, 10);
-                        Log.d("save_tv","save");
+                        Log.d("save_tv", "save");
                         Toast.makeText(context, "签名文件放到：\n" + paths, Toast.LENGTH_SHORT).show();
-                        Log.d("save_tv","签名文件放到");
+                        Log.d("save_tv", "签名文件放到");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -123,8 +125,8 @@ public class AutographView extends LinearLayout {
     }
 
     /**
-     *
      * 整体控件高度最小 130,标准330
+     *
      * @param height
      */
     public void setMyHeight(int height) {
@@ -187,7 +189,7 @@ public class AutographView extends LinearLayout {
      *
      * @param token
      */
-    public void setToken( String token) {
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -196,7 +198,7 @@ public class AutographView extends LinearLayout {
      *
      * @param type
      */
-    public void setType( String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -205,7 +207,7 @@ public class AutographView extends LinearLayout {
      *
      * @param workNo
      */
-    public void setWorkNo( String workNo) {
+    public void setWorkNo(String workNo) {
         this.workNo = workNo;
     }
 
