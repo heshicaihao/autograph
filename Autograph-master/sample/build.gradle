@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+Properties properties = new Properties()
+def writer = project.rootProject.file('local_info.properties');
+properties.load(writer.newDataInputStream())
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.heshicaihao.autograph.demo"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../autograph_key.jks')
+            storePassword "hsc753"
+            keyAlias "autograph"
+            keyPassword "hsc753"
+        }
+        release {
+            storeFile file('../autograph_key.jks')
+            storePassword "hsc753"
+            keyAlias "autograph"
+            keyPassword "hsc753"
+        }
+    }
+
+    buildTypes {
+        release {
+            manifestPlaceholders = [k_appName: "手写签名"] // 设置默认的k_appName
+            buildConfigField "String", "SERVER_URL", properties.getProperty("releaseUrl")
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            manifestPlaceholders = [k_appName: "手写签名Debug"]
+//            applicationIdSuffix ".debug"
+            buildConfigField "String", "SERVER_URL", properties.getProperty("debugUrl")
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+
+        variant.outputs.all {
+            outputFileName = "staff_${variant.versionCode}_v${variant.versionName}_${buildType.name}.apk"
+        }
+
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation project(':autograph')
+
+//    implementation 'com.heshicaihao:autograph:0.0.7'
+}
