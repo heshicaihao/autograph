@@ -2,11 +2,9 @@ package com.heshicaihao.autograph;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -19,13 +17,10 @@ import com.heshicaihao.autograph.constants.FileConstants;
 import com.heshicaihao.autograph.net.LogUtils;
 import com.heshicaihao.autograph.net.RxOkHttp;
 import com.heshicaihao.autograph.net.UploadPic;
-import com.heshicaihao.autograph.net.UploadPic2;
+import com.heshicaihao.autograph.net.UploadAutograph;
 import com.heshicaihao.autograph.widget.LinePathView;
 import com.heshicaihao.net.RxOK.rx.ErrorBean;
 import com.heshicaihao.net.RxOK.rx.ResultSubscriber;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -154,7 +149,7 @@ public class AutographView extends LinearLayout {
                 token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjUzNjA0NzYsInVzZXJuYW1lIjoiMTM1NDQyMjI2MzIifQ.HODQMbUX-_EthpX_ATun53v_4X_elwXZCsN6WRlnmYE";
                 type = "3";
                 workNo = "PA190727182203961801";
-                UploadPic2.uploadUserPicture( url, token, bitMap, type, workNo );
+                UploadAutograph.uploadUserPicture( url, token, bitMap, type, workNo );
                 setCacheEnabled(false);
             }
         } ).start();

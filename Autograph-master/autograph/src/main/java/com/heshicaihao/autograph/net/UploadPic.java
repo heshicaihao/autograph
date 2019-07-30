@@ -16,7 +16,7 @@ import java.util.UUID;
 import android.content.Context;
 
 
-public class UploadPic {
+public class UploadPic  {
 
     public static int readTimeOut = 10 * 1000; // 读取超时
     public static int connectTimeout = 10 * 1000; // 超时时间
@@ -25,9 +25,6 @@ public class UploadPic {
     private static final String PREFIX = "--";
     private static final String LINE_END = "\r\n";
     private static final String CONTENT_TYPE = "multipart/form-data"; // 内容类型
-    public Context context;
-    private String TAG = "UploadPic";
-    private String token;
 
     /**
      * 同步上传图片
